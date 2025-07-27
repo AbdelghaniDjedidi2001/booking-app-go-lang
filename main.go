@@ -20,7 +20,7 @@ func main() {
 
 	// var bookings [50]string    array
 	 var bookings []string // slice
-	var index uint = 0
+	// var index uint = 0
 
 	// var userName error
 	var firstName string
@@ -28,7 +28,8 @@ func main() {
 	var email string
 	var userTickets uint
 
-	for index < 50 && remainingTickets != 0 {
+	// for index < 50 && remainingTickets != 0 {
+	for remainingTickets != 0 {
 		// fmt.Println(&userName)
 		// fmt.Println(&remainingTickets)
 		fmt.Printf("Remaining Tickets : %v\n", remainingTickets)
@@ -54,7 +55,7 @@ func main() {
 
 		fmt.Printf("Thank you %s %s for booking %v tickets, you will receive a confermation email  at %s\n", firstName, lastName, userTickets, email)
 
-		index++
+		// index++
 	}
 
 	fmt.Printf("all booking : %v\n", bookings)
