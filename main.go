@@ -18,17 +18,24 @@ func main() {
 	fmt.Println("Get your tickets here to attend")
 
 	// var userName error
-	var userName string
+	var firstName string
+	var lastName string
+	var email string
 	var userTickets int
 
-	// userName = "Ghonou"
-	userTickets = 2
+
 
 	// fmt.Println(&userName)
 	// fmt.Println(&remainingTickets)
+	fmt.Print("Enter your firstName : ")
+	fmt.Scan(&firstName)
+	fmt.Print("Enter your lastName : ")
+	fmt.Scan(&lastName)
+	fmt.Print("Enter your email : ")
+	fmt.Scan(&email)
+	fmt.Print("Enter number of tickets : ")
+	fmt.Scan(&userTickets)
 
-	fmt.Scan(&userName)
-
-	fmt.Printf("User %s booked %v tickets\n",userName,userTickets)
+	fmt.Printf("Thank you %s %s for booking %v tickets, you will receive a confermation email  at %s\n",firstName,lastName,userTickets,email)
 	
 }
