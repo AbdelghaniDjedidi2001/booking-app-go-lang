@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	// var name = "Go Confrerence"
@@ -19,7 +22,7 @@ func main() {
 	fmt.Println("Get your tickets here to attend")
 
 	// var bookings [50]string    array
-	 var bookings []string // slice
+	var bookings []string // slice
 	// var index uint = 0
 
 	// var userName error
@@ -33,16 +36,32 @@ func main() {
 		// fmt.Println(&userName)
 		// fmt.Println(&remainingTickets)
 		fmt.Printf("Remaining Tickets : %v\n", remainingTickets)
-		fmt.Print("Enter your firstName : ")
-		fmt.Scan(&firstName)
-		fmt.Print("Enter your lastName : ")
-		fmt.Scan(&lastName)
-		fmt.Print("Enter your email : ")
-		fmt.Scan(&email)
+
+		var isFirstNameValid = false
+		for !isFirstNameValid {
+			fmt.Print("Enter your firstName : ")
+			fmt.Scan(&firstName)
+			isFirstNameValid = len(firstName) > 2
+		}
+
+		var isLastNameValid = false
+		for !isLastNameValid {
+			fmt.Print("Enter your lastName : ")
+			fmt.Scan(&lastName)
+			isLastNameValid = len(lastName) > 2
+		}
+
+		var isEmailValid = false
+		for !isEmailValid {
+			fmt.Print("Enter your email : ")
+			fmt.Scan(&email)
+			isEmailValid = strings.Contains(email, "@")
+		}
+
 		fmt.Print("Enter number of tickets : ")
 		fmt.Scan(&userTickets)
 
-		for userTickets > remainingTickets {
+		for userTickets > remainingTickets || userTickets == 0 {
 			fmt.Printf("Enter number of tickets less than %v: ", remainingTickets)
 			fmt.Scan(&userTickets)
 		}
@@ -51,7 +70,7 @@ func main() {
 		// var userData = "full Name %s %s,Number of tickets %v,Email %s" ,firstName,lastName,userTickets,email
 		userData := fmt.Sprintf("full Name %s %s, Number of tickets %v, Email %s", firstName, lastName, userTickets, email)
 		// bookings[index] = userData   array
-		bookings = append(bookings, userData)  //slice
+		bookings = append(bookings, userData) //slice
 
 		fmt.Printf("Thank you %s %s for booking %v tickets, you will receive a confermation email  at %s\n", firstName, lastName, userTickets, email)
 
