@@ -18,7 +18,8 @@ func main() {
 	fmt.Printf("we have total of %v tickets and %v are still available.\n", confrerenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 
-	var bookings [50]string
+	// var bookings [50]string    array
+	 var bookings []string // slice
 	var index uint = 0
 
 	// var userName error
@@ -48,7 +49,8 @@ func main() {
 		remainingTickets -= userTickets
 		// var userData = "full Name %s %s,Number of tickets %v,Email %s" ,firstName,lastName,userTickets,email
 		userData := fmt.Sprintf("full Name %s %s, Number of tickets %v, Email %s", firstName, lastName, userTickets, email)
-		bookings[index] = userData
+		// bookings[index] = userData   array
+		bookings = append(bookings, userData)  //slice
 
 		fmt.Printf("Thank you %s %s for booking %v tickets, you will receive a confermation email  at %s\n", firstName, lastName, userTickets, email)
 
